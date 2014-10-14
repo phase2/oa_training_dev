@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Device Title Change feature.
+ */
+
+include_once 'device_title_change.features.inc';
