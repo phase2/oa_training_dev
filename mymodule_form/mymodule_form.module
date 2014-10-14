@@ -1,0 +1,66 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function mymodule_form_menu() {
+  $items['myform'] = array(
+    'title' => 'My Form Test',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('mymodule_form_form'),
+    'access arguments' => array('access content'),
+  );
+  return $items;
+}
+
+/**
+ * My Test Form
+ */
+function mymodule_form_form($form, &$form_state) {
+  $form = array();
+
+  $form['mymodule_form_string'] = array(
+    '#type' => 'textfield',
+    '#title' => 'String Field',
+    '#description' => 'Enter a string value',
+    '#default_value' => variable_get('mymodule_form_string'),
+  );
+
+  $options = array('Item 1', 'Item 2', 'Item 3');
+  $form['mymodule_form_select'] = array(
+    '#type' => 'select',
+    '#title' => 'Select Field',
+    '#description' => 'Select a value',
+    '#default_value' => variable_get('mymodule_form_select'),
+    '#options' => $options,
+  );
+
+  $items = array('value1' => 'Item 1', 'value2' => 'Item 2', 'value3' => 'Item 3');
+  $form['mymodule_form_checkbox'] = array(
+    '#type' => 'checkboxes',
+    '#title' => 'Checkbox Field',
+    '#description' => 'Check some boxes',
+    '#default_value' => variable_get('mymodule_form_checkbox'),
+    '#options' => $items,
+  );
+
+  return system_settings_form($form);
+}
+
+/**
+ * Implements hook_form_alter for node edit forms
+ */
+function mymodule_form_form_node_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'device_node_form') {
+    $form['oa_section_ref']['#access'] = FALSE;
+  }
+}
+
+/**
+ * Implements hook_form_alter for device node edit forms
+ */
+function mymodule_form_form_device_node_form_alter(&$form, &$form_state) {
+  $form['field_device_id'][LANGUAGE_NONE][0]['value']['#title'] = t('My Device ID');
+}
+
+

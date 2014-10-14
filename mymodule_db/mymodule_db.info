@@ -1,0 +1,3 @@
+name = My DB Module
+description = Testing the Drupal Database API
+core = 7.x

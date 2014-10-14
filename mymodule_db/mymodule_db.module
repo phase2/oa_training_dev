@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function mymodule_db_menu() {
+  $items['mymodule_db'] = array(
+    'title' => 'My DB Example Page',
+    'type' => MENU_CALLBACK,
+    'page callback' => 'mymodule_db_callback',
+    'access arguments' => array('access content'),
+  );
+  return $items;
+}
+
+function mymodule_db_callback() {
+  $query = db_select('node', 'n');
+
+  $query->fields('n', array('nid', 'title'))
+    ->condition('type', 'device')
+    ->orderBy('title');
+
+  $result = $query->execute()->fetchAllAssoc('nid');
+
+  $output = '';
+  $items = array();
+  foreach ($result as $row) {
+    $output .= $row->title . "<br>\n";
+    $items[]['data'] = $row->title;
+  }
+
+  $output = theme('item_list', array('items' => $items));
+  return $output;
+}
+

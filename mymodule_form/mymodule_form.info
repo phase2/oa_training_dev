@@ -1,0 +1,3 @@
+name = My Form Module
+description = Testing the Drupal Form API
+core = 7.x

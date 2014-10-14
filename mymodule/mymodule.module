@@ -4,7 +4,6 @@
  * Implements hook_menu().
  */
 function mymodule_menu() {
-  // Add an administration page for Open Atrium
   $items['mymodule'] = array(
     'title' => 'My Module Page',
     'type' => MENU_CALLBACK,
