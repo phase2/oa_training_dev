@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Defines the Node Token widget.
+ * Defines the custom widget.
  */
 
 $plugin = array(
@@ -22,7 +22,7 @@ $plugin = array(
 
 
 /**
- * Render callback for the node token pane.
+ * Render callback for the widget.
  */
 function mywidget_render($subtype, $conf, $args, $context = NULL) {
   if (empty($context->data->nid) || !node_access('view', $context->data)) {

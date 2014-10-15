@@ -1,9 +1,7 @@
 <?php
 /**
  * @file
- * Provides the template for the node token widget.
- *
- * $body - HTML body
+ * Provides the template for the custom widget.
  */
 ?>
 <div class="clearfix" style="<?php print $styles; ?>">

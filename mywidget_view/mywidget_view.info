@@ -1,0 +1,3 @@
+name = My View Widget Module
+description = A widget that uses Views
+core = 7.x
