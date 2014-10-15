@@ -28,14 +28,12 @@ function mywidget_render($subtype, $conf, $args, $context = NULL) {
   if (empty($context->data->nid) || !node_access('view', $context->data)) {
     return;
   }
-
   $node = $context->data;
 
   $block = new stdClass();
   $block->title = t('My Custom Widget');
 
   $vars['node_title'] = $node->title;
-
   $vars['body'] = isset($conf['text_body']['value']) ? $conf['text_body']['value'] : '';
 
   $styles = '';
