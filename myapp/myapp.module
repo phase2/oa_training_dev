@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * Implements hook_oa_settings_form().
+ */
+function myapp_oa_settings_form(&$form_state) {
+  $forms = array();
+
+  $form['myapp_option1'] = array(
+    '#type' => 'checkbox',
+    '#title' => 'Option for MyApp',
+    '#description' => 'Enable or disable this option',
+    '#default_value' => variable_get('myapp_option1'),
+  );
+  $form['myapp_text1'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Enter a string',
+    '#default_value' => variable_get('myapp_text1'),
+  );
+
+  $forms[] = array(
+    'caption' =>t('My App Settings'),
+    'form' => $form,
+  );
+
+  return $forms;
+}
