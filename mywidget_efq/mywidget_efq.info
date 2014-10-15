@@ -1,0 +1,3 @@
+name = My EFQ Widget Module
+description = A widget that uses entity field queries
+core = 7.x

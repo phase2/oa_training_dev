@@ -14,9 +14,6 @@ $plugin = array(
   'render callback' => 'mywidget_view_render',
   'required context' => new ctools_context_required(t('Node'), 'node'),
   'defaults' => array(
-    'text_body' => '',
-    'text_color' => '',
-    'background_color' => '',
   ),
 );
 
@@ -60,7 +57,7 @@ function mywidget_view_render($subtype, $conf, $args, $context = NULL) {
  * Edit form for the panel.
  */
 function mywidget_view_edit_form($form, &$form_state) {
-  return array();
+  return $form;
 }
 
 /**

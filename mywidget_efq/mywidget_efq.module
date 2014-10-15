@@ -1,0 +1,22 @@
+<?php
+
+/**
+* Implements hook_ctools_plugin_directory().
+*/
+function mywidget_efq_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'ctools' && $plugin_type == 'content_types') {
+    return 'plugins/content_types';
+  }
+}
+
+/**
+ * Implements hook_theme()
+ */
+function mywidget_efq_theme() {
+  return array(
+    'mywidget_efq' => array(
+      'template'  => 'mywidget_efq',
+      'path' => drupal_get_path('module', 'mywidget_efq') . '/templates',
+    ),
+  );
+}
