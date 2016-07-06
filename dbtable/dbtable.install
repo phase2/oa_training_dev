@@ -62,4 +62,11 @@ function dbtable_install() {
       'value' => 456,
     ))
     ->execute();
+  db_insert('dbtable')
+    ->fields(array(
+      'name' => 'Another Example Name 456',
+      'description' => 'Another Example Description 456',
+      'value' => 456,
+    ))
+    ->execute();
 }
