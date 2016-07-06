@@ -1,0 +1,65 @@
+<?php
+
+/**
+ * @file
+ * Provides functions that run on (un)install and update for dbtable module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function dbtable_schema() {
+  $schema = array();
+
+  $schema['dbtable'] = array(
+    'description' => 'The database table for dbtable',
+    'fields' => array(
+      'dbtable_id' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+      ),
+      'name' => array(
+        'description' => 'The name of the item.',
+        'type' => 'varchar',
+        'length' => '128',
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'description' => array(
+        'description' => 'The description of the item.',
+        'type' => 'text',
+        'not null' => TRUE,
+      ),
+      'value' => array(
+        'description' => 'The numeric value of the item.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('dbtable_id'),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+function dbtable_install() {
+  db_insert('dbtable')
+    ->fields(array(
+      'name' => 'Example Name 123',
+      'description' => 'Example Description 123',
+      'value' => 123,
+    ))
+    ->execute();
+  db_insert('dbtable')
+    ->fields(array(
+      'name' => 'Example Name 456',
+      'description' => 'Example Description 456',
+      'value' => 456,
+    ))
+    ->execute();
+}
