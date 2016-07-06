@@ -1,0 +1,3 @@
+name = My Widget Database Module
+description = A widget that displays data from DB
+core = 7.x

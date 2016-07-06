@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function mywidget_db_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'ctools' && $plugin_type == 'content_types') {
+    return 'plugins/content_types';
+  }
+}
+
+/**
+ * Implements hook_theme()
+ */
+function mywidget_db_theme() {
+  return array(
+    'mywidget_db' => array(
+      'template'  => 'mywidget_db',
+      'path' => drupal_get_path('module', 'mywidget_db') . '/templates',
+    ),
+  );
+}
