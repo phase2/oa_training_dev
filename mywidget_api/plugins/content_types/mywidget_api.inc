@@ -23,9 +23,10 @@ $plugin = array(
  */
 function mywidget_api_render($subtype, $conf, $args, $context = NULL) {
   $block = new stdClass();
-  $block->title = t('My Custom DB Widget');
 
   $state = strtolower(check_plain($conf['state']));
+  $block->title = t('Counties of ' . strtoupper($state));
+
   $response = drupal_http_request('http://api.sba.gov/geodata/city_county_links_for_state_of/' . $state. '.json');
   $data = drupal_json_decode($response->data);
   $items = array();
