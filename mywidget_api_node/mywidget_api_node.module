@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function mywidget_api_node_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'ctools' && $plugin_type == 'content_types') {
+    return 'plugins/content_types';
+  }
+}
+
+/**
+ * Implements hook_theme()
+ */
+function mywidget_api_node_theme() {
+  return array(
+    'mywidget_api_node' => array(
+      'template'  => 'mywidget_api_node',
+      'path' => drupal_get_path('module', 'mywidget_api_node') . '/templates',
+    ),
+  );
+}

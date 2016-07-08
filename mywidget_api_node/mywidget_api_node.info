@@ -1,0 +1,3 @@
+name = My Widget API from Node Module
+description = A widget that displays data from an external API using data from node
+core = 7.x
