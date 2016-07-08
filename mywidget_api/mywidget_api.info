@@ -1,0 +1,3 @@
+name = My Widget API Module
+description = A widget that displays data from an external API
+core = 7.x
